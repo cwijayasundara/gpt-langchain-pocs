@@ -1,0 +1,12 @@
+openai
+streamlit
+langchain==0.0.188
+wikipedia
+sqlalchemy
+pinecone-client
+unstructured
+tiktoken
+pdf2image
+python-dotenv
+google-cloud-aiplatform
+duckduckgo-search
