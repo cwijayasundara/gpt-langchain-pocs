@@ -1,6 +1,6 @@
 openai
 streamlit
-langchain==0.0.188
+langchain
 wikipedia
 sqlalchemy
 pinecone-client
@@ -8,5 +8,7 @@ unstructured
 tiktoken
 pdf2image
 python-dotenv
-google-cloud-aiplatform
 duckduckgo-search
+datasets
+pandas
+google-cloud-aiplatform==1.25.0

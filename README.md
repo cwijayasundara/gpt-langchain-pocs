@@ -65,3 +65,8 @@
     ```bash
     $ cd wiki-reader-agent
     $ streamlit run pinecone-agent.py
+14. If you want to run the help desk application, then the following
+    ```bash
+    $ cd helpdesk-agent
+    $ streamlit run helpdesk-automator-langchain.py
+    ```

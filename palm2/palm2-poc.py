@@ -1,5 +1,12 @@
-from langchain.llms import VertexAI
+import vertexai
+
 from langchain import PromptTemplate, LLMChain
+from google.cloud import aiplatform
+
+PROJECT_ID = "ibm-keras"
+LOCATION = "us-west1"  # e.g. us-central1
+
+vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 template = """Question: {question}
 Answer: Let's think step by step."""
