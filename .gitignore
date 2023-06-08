@@ -2,3 +2,6 @@ venv
 .idea
 .env
 .venv
+investment-advisor-bot/sec_files
+investment-advisor-bot/sec_files_old
+```

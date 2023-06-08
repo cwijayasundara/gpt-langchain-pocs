@@ -17,7 +17,7 @@ index_name = 'semantic-search-openai'
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
 loader = DirectoryLoader(
-    './sec_files', # my local directory
+    './sec_files_old', # my local directory
     glob='**/*.pdf',     # we only get pdfs
     show_progress=True
 )
@@ -42,6 +42,6 @@ doc_db = Pinecone.from_documents(
     index_name=index_name
 )
 
-query = "What is the comprehensive income for Alphabet Inc. in 2023?"
+query = "What is the comprehensive income for Alphabet Inc. in 2022?"
 search_docs = doc_db.similarity_search(query)
-search_docs
+print(search_docs)
