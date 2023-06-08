@@ -31,8 +31,7 @@ index_name = 'semantic-search-openai'
 warnings.filterwarnings('ignore')
 EMBEDDING_MODEL_NAME = 'text-embedding-ada-002'
 
-# create the LLM
-llm = OpenAI(temperature=0.0)
+llm = ChatOpenAI(temperature=0.0)
 
 # embedding model
 embed = OpenAIEmbeddings(
@@ -56,12 +55,9 @@ vectorstore = Pinecone(
 qa = RetrievalQA.from_chain_type(
     llm=llm,
     chain_type='stuff',
-    retriever=vectorstore.as_retriever(),
+    retriever=vectorstore.as_retriever()
 )
-# create an agent
-
 # we load wikipedia
-# tools = load_tools(['wikipedia', 'ddg-search','llm-math'], llm=llm)
 tools = load_tools(['llm-math'], llm=llm)
 memory = ConversationBufferMemory(memory_key='chat_history')
 
@@ -83,23 +79,10 @@ agent = initialize_agent(
     tools,
     llm,
     handle_parsing_errors=True,
-    agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
+    agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
     verbose=True,
-    memory=memory
+    memory=memory,
 )
-
-# agent.agent.llm_chain.prompt.template
-#
-# memory = ConversationBufferMemory(memory_key='chat_history')
-# planner = load_chat_planner(llm)
-# executor = load_agent_executor(llm, tools, verbose=True)
-#
-# agent = PlanAndExecute(
-#     planner=planner,
-#     executor=executor,
-#     verbose=True,
-#     reduce_k_below_max_tokens=True
-# )
 
 st.title("Alphabet SEC File Chat")
 st.text_input("Please Enter Your Query On the SEC Files for Alphabet ! ", key="query")
